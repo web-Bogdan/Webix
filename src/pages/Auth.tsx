@@ -7,8 +7,9 @@ import {Typography, Button, TextField} from "@mui/material";
 import Popup from "../components/Popup";
 
 const Auth = () => {
+    // Modals settings
     const [activePopupName, setActivePopupName] = useState('');
-    const handleClose = () => setActivePopupName('');
+    const handleClose = (): void => setActivePopupName('');
     // Auth page wrapper styles
     const Auth = styled("div")({
         backgroundColor: "#FFFFFF",
@@ -44,7 +45,6 @@ const Auth = () => {
         display: "flex",
         justifyContent: "end"
     });
-
     return (
         <Auth>
             <OpportunitiesSide>

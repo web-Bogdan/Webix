@@ -1,12 +1,10 @@
 import React from 'react';
 import {Modal, Box, Typography} from "@mui/material";
+import { IconButton } from '@mui/material';
+import CloseIcon from '@mui/icons-material/Close';
+import {IPopup} from "../utils/Interfaces";
 
-interface IPopup{
-    children: React.ReactNode,
-    open: boolean,
-    handleClose: any,
-    popupName: string,
-}
+
 
 const Popup: React.FC<IPopup> = ({children, open, handleClose, popupName }) => {
     const style = {
@@ -30,9 +28,13 @@ const Popup: React.FC<IPopup> = ({children, open, handleClose, popupName }) => {
                 aria-describedby="modal-modal-description"
             >
                 <Box sx={style}>
-                    <Typography id="modal-modal-title" variant="h5" component="h2">
-                        {popupName}
-                    </Typography>
+                    <div style={{display: "flex", justifyContent: "space-between"}}>
+                        <Typography id="modal-modal-title" variant="h5" component="h2">
+                            {popupName}
+                        </Typography>
+                        <IconButton><CloseIcon onClick={handleClose}></CloseIcon></IconButton>
+
+                    </div>
                     <Typography id="modal-modal-description" sx={{ mt: 4 }}>
                         {children}
                     </Typography>
